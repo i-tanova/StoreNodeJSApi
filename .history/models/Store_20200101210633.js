@@ -37,10 +37,6 @@ StoreSchema.pre('save', async function(next){
     type: 'Point',
     coordinates: [loc[0].longitude, loc[0].latitude]
   }
-  this.formattedAddress = loc[0].formattedAddress
   console.log(loc);
-  // Do not save the address
-  this.address = undefined;
-  next();
-});
+})
 module.exports = mongoose.model('Store', StoreSchema);

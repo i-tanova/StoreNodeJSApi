@@ -32,8 +32,9 @@ exports.addStore = async(req, res, next) => {
     } catch (error) {
         console.error(error);
         if(error.code === 11000){
-            return res.status(400).json({error: "Store id already exists"});
-        }
+            res.status(400).json({error: "Store id already exists"});
+        }else{
         res.status(500).json({error: "Server error"});
+        }
     }
 }

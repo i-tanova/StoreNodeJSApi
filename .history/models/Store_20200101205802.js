@@ -32,15 +32,6 @@ const StoreSchema = new mongoose.Schema({
 
 // Geocode & create location
 StoreSchema.pre('save', async function(next){
-  const loc = await geocoder.geocode(this.address);
-  this.location = {
-    type: 'Point',
-    coordinates: [loc[0].longitude, loc[0].latitude]
-  }
-  this.formattedAddress = loc[0].formattedAddress
-  console.log(loc);
-  // Do not save the address
-  this.address = undefined;
-  next();
-});
+  cons loc = await geocoder.geocode(this.address);
+})
 module.exports = mongoose.model('Store', StoreSchema);

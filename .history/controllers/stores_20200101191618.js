@@ -12,7 +12,7 @@ exports.getStores = async(req, res, next) => {
             data: stores
         });
     } catch (error) {
-        console.error(error);
+        console.exception(error);
         res.status(500).json({error: "Server error"});
     }
 }
@@ -23,17 +23,8 @@ exports.getStores = async(req, res, next) => {
 exports.addStore = async(req, res, next) => {
     try {
         console.log(req.body);
-        const store = await Store.create(req.body);
-
-        res.status(200).json({
-            success: true,
-            data: store
-        });
     } catch (error) {
-        console.error(error);
-        if(error.code === 11000){
-            return res.status(400).json({error: "Store id already exists"});
-        }
+        console.exception(error);
         res.status(500).json({error: "Server error"});
     }
 }

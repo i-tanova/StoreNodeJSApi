@@ -12,7 +12,7 @@ exports.getStores = async(req, res, next) => {
             data: stores
         });
     } catch (error) {
-        console.error(error);
+        console.exception(error);
         res.status(500).json({error: "Server error"});
     }
 }
@@ -30,10 +30,7 @@ exports.addStore = async(req, res, next) => {
             data: store
         });
     } catch (error) {
-        console.error(error);
-        if(error.code === 11000){
-            return res.status(400).json({error: "Store id already exists"});
-        }
+        console.exception(error);
         res.status(500).json({error: "Server error"});
     }
 }
