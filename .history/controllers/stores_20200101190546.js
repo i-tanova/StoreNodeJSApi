@@ -13,6 +13,6 @@ exports.getStores = async(req, res, next) => {
         });
     } catch (error) {
         console.exception(error);
-        res.status(500).json({error: "Server error"});
+        res.status(500);
     }
 }
