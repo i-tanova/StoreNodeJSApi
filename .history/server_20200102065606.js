@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 // Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static.path(path.join(_dirname, 'public')));
 
 // Routes
 app.use('/api/v1/stores', require('./routes/stores'));
